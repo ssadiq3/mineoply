@@ -193,7 +193,6 @@ public class GameEngine extends Observable {
             this.setChanged();
             this.notifyObservers();
         }
-
         endRound();
     }
 
