@@ -43,9 +43,16 @@ public class CompetitionStrategy implements MinePlayerStrategy {
         //fill market and charge tiles-constant throughout game
         for (int x = 0; x < boardSize; x++) {
             for (int y = 0; y < boardSize; y++) {
-                if (startingBoard.getTileTypeAtLocation(x, y).equals(TileType.RED_MARKET)) {
-                    marketTiles.add(new Point(x, y));
-                } else if (startingBoard.getTileTypeAtLocation(x, y).equals(TileType.RECHARGE)) {
+                if (isRedPlayer) {
+                    if (startingBoard.getTileTypeAtLocation(x, y).equals(TileType.RED_MARKET)) {
+                        marketTiles.add(new Point(x, y));
+                    }
+                } else {
+                    if (startingBoard.getTileTypeAtLocation(x, y).equals(TileType.BLUE_MARKET)) {
+                        marketTiles.add(new Point(x, y));
+                    }
+                }
+                if (startingBoard.getTileTypeAtLocation(x, y).equals(TileType.RECHARGE)) {
                     chargeTiles.add(new Point(x, y));
                 }
             }
